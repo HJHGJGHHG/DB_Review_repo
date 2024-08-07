@@ -1,7 +1,0 @@
-# Title
-
-*[anonymous authors]*
-
----
-
-**[Abstract]** 

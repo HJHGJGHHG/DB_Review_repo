@@ -3,10 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Put description here.">
-  <meta name="keywords" content="Put keywords here.">
+        content="EasyTalk">
+  <meta name="keywords" content="EasyTalk">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Put Title Here</title>
+  <title>EasyTalk (AAAI #4987)</title>
+
+  <style>
+    td {
+        padding: 10px;
+        border: 10px solid rgb(255, 255, 255);
+    }
+    section {
+      margin: 0;
+      padding: 0;
+    }
+    section {
+      margin-bottom: -20px; /* 减小间距 */
+    }
+    video {
+      margin-top: -20px; /* 减小间距 */
+      margin-bottom: -20px; /* 减小间距 */
+    }
+    section:last-child {
+      margin-bottom: 0; /* 最后一个section不减小间距 */
+    }
+</style>
 
 <!--   Global site tag (gtag.js) - Google Analytics-->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5ZVQZ7NHC"></script>
@@ -53,80 +74,16 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Put Title Here</h1>
-          <div class="is-size-4 publication-authors">
-            <span class="author-block">
-              <a href="">Author A</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="">Author B</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="">Author C</a><sup>*</sup>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1*</sup>USTC,</span>
-            <span class="author-block"><sup>2</sup>XXlab</span>
-          </div>
+          <h1 class="title is-1 publication-title">EasyTalk: Cross-Modal Style Alignment for Emotional Talking Head Generation</h1>
 
           <div class="is-size-3 publication-authors">
             <span class="author-block"> </span>
-            <span class="author-block"> Accepted to XXXX 2024 </span>
+            <span class="author-block"> 
+              <h2 class="subtitle has-text-centered" style="font-size: 2.4rem; color: #29d4d2">
+              AAAI 2025 Anonymous Submission #4987 </span>
+            </h2>
           </div>
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
-            </div>
-
-          </div>
         </div>
       </div>
     </div>
@@ -134,17 +91,13 @@
 </section>
 
 <!--teaser-->
-<section class="hero teaser">
+<section class="hero teaser is-small">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="subtitle has-text-centered" style="font-size: 1.38rem; color: #1c1c1c">
-<!--        We present <span style="color: #a537fd"><b>Perfusion</b></span>, a new text-to-image personalization method.-->
-<!--        With only a <b><u>100KB model size</u></b>, Perfusion can creatively portray personalized objects, allowing significant changes in their appearance,-->
-<!--        while maintaining their identity, using a novel mechanism we call <b>“<u>Key-Locking</u>”</b>.-->
-<!--        Perfusion can also <b><u>combine individually learned concepts</u></b> into a single generated image.-->
-<!--        Finally, it enables <b><u>controlling the trade-off</u></b> between visual and textual alignment at inference time, covering the entire Pareto front with just a single trained model.-->
-        
-      Put Description Here
+        We present <span style="color: #2fd3fc"><b>EasyTalk</b></span>,
+        <p>
+        a cross-modal style controllable emotional talking head generation method.
       </h2>
     </div>
   </div>
@@ -159,7 +112,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-          Put Abstract Here
+            Speech-driven talking head generation has became a trending topic recently. However, expressing emotion on generated talking heads is still challenging due to the heterogeneity of different modals that are required to be handled properly during the generation. To enable effective facial expression control when generating talking heads, we propose the <b><u>EasyTalk</u></b>, a two-stage generation framework supporting the control of facial expression by emotion signals from images, text, or speech. Specifically, we separate the generation approach into two stages: Speech-to-Motion and Motion-to-Video, leveraging ARKit coefficients as the intermediate representations. We propose to utilize visemes as emotion-invariant representations to guide lip movements, thereby compelling the model to learn expression-related motions from the emotion inputs. We further align emotional signals from different modalities by cross-modal contrastive learning for more effective control. Extensive experiments show that our method achieves new state-of-the-art measured by lip-sync and realistic metrics and enables efficient facial expression controls.
           </p>
         </div>
       </div>
@@ -179,14 +132,53 @@
         <div class="columns is-centered has-text-centered">
           <div class="column">
             <div class="publication-img">
-              <img id="architecture" src=""/>
+              <img id="architecture" src="./assets/img/main.jpg"/>
             </div>
           </div>
         </div>
         <p>
-          put methodology and model architecture fig here.
+          Illustration of the proposed model.
         </p>
     </div>
+  </div>
+</section>
+
+<!-- Showcases -->
+<section class="section">
+  <div class="container is-max-desktop">
+
+      <div class="section-title">
+        <h2 class="title is-3">Showcases</h2>
+      </div>
+
+    <h3 class="title is-4">Audio-Driven (without expressions)</h3>
+    <p>
+      Audio driven cases without multi-modal style control.
+    </p>
+    <table style="border-collapse:separate; border-spacing:0px 10px;">
+    <tr>
+      <td width="50%"> <video id="showcases1" controls="" playsinline="" height="90%">
+        <source src="./assets/video/test.mp4" type="video/mp4">
+      </video> </td>
+      <td width="50%"> <video id="showcases1" controls="" playsinline="" height="90%">
+        <source src="./assets/video/test.mp4" type="video/mp4">
+      </video> </td>
+    </tr>
+    </table>
+
+    <br><br>
+    <h3 class="title is-4">Multi-modal Style Control</h3>
+    <table style="border-collapse:separate; border-spacing:0px 10px;">
+    <tr>
+      <td width="50%"> <video id="showcases1" controls="" playsinline="" height="90%">
+        <source src="./assets/video/test.mp4" type="video/mp4">
+      </video> </td>
+      <td width="50%"> <video id="showcases1" controls="" playsinline="" height="90%">
+        <source src="./assets/video/test.mp4" type="video/mp4">
+      </video> </td>
+    </tr>
+    </table>
+
   </div>
 </section>
 
@@ -199,59 +191,84 @@
       </div>
 
     <div class="columns is-centered">
-
       <div class="column">
         <div class="content">
-
-          <p>
-            遥遥领先！  <br>
-          </p>
-
           <div class="columns is-vcentered interpolation-panel">
             <div class="column has-text-centered">
-              <img src="./static/img/methods.png">
-              <p>Audio-driven talking head video generation methods.</p>
+              <img src="./assets/img/methods.png"  width="55%">
+              <p>Audio-driven talking head video generation methods to be compared.</p>
             </div>
           </div>
-            
         </div>
       </div>
-      <!--/ Cross domain. -->
 
-      <!-- New domain editing. -->
     </div>
-    <!--/ New domain editing. -->
-    <br><br>
     <h3 class="title is-4">Qualitative Evaluation</h3>
     <video id="matting-video" controls="" playsinline="" height="100%">
-      <source src="./static/video/test.mp4" type="video/mp4">
+      <source src="./assets/video/test.mp4" type="video/mp4">
     </video>
 
     <br><br>
-
     <h3 class="title is-4">Quantitative Evaluation</h3>
     <div class="columns is-vcentered interpolation-panel">
       <div class="column has-text-centered">
-        <img src="./static/img/metric.png">
+        <img src="./assets/img/metric.png">
         <p> The quantitative results on dataset A and B.</p>
       </div>
     </div>
+
+    <br><br>
+    <h3 class="title is-4">User Study</h3>
+    <div class="columns is-vcentered interpolation-panel">
+      <div class="column has-text-centered">
+        <img src="./assets/img/metric.png">
+        <p> User study results.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
+<!-- Ablation Studies -->
+<section class="section">
+  <div class="container is-max-desktop">
 
+      <div class="section-title">
+        <h2 class="title is-3">Ablation Studies</h2>
+      </div>
 
-<!-- Cite -->
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <p>If you find our work useful, please cite our paper:</p>
-    <pre><code>@inproceedings{xxxx,
-      author = {A and B and C},
-      title = {Put Title Here},
-      year = {2023},
-      series = {XXXX '24}
-}</code></pre>
+    <h3 class="title is-4">1</h3>
+    <video id="matting-video" controls="" playsinline="" height="100%">
+      <source src="./assets/video/test.mp4" type="video/mp4">
+    </video>
+
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+      <h1 class="title is-4">
+          Ethical Consideration (Copied from AniTalker)
+      </h1>
+      <div class="content has-text-justified-desktop">
+          <p>
+
+          The potential misuse of lifelike digital human face generation, such as for creating fraudulent identities or disseminating misinformation, necessitates preemptive ethical measures. Before utilizing these models, it is crucial for organizations to integrate ethical guidelines into their policies, ensuring the application of this technology emphasizes consent, transparency, and accountability. Furthermore, it is recommended to embed visible or invisible digital watermarks in any generated content.
+
+          </p>
+
+      </div>
+
+      <h1 class="title is-4">
+          Removal Policy
+      </h1>
+      <div class="content has-text-justified-desktop">
+
+           <p>
+
+         Please be aware that all videos on this page are algorithmically generated from publicly available sources and are intended solely for academic demonstrations and algorithm comparisons.  Any other form of usage is prohibited. Besides, if required by the original image owner or in the case of misuse of the models, the images, models, and codes associated with this project may be removed at any time.
+          </p>
+      </div>
   </div>
 </section>
 
