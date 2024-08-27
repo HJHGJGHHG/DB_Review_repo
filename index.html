@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="EasyTalk">
-  <meta name="keywords" content="EasyTalk">
+        content="EasyTalking">
+  <meta name="keywords" content="EasyTalking">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EasyTalk (AAAI #4987)</title>
+  <title>EasyTalking (AAAI #4987)</title>
 
   <style>
     td {
         padding: 10px;
-        border: 10px solid rgb(255, 255, 255);
+        border: 8px solid rgb(255, 255, 255);
     }
-    section {
+    h3,h4,section {
       margin: 0;
       padding: 0;
     }
@@ -74,7 +74,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">EasyTalk: Cross-Modal Style Alignment for Emotional Talking Head Generation</h1>
+          <h1 class="title is-1 publication-title">EasyTalking: Cross-Modal Emotion Alignment for Emotional Talking Head Generation</h1>
 
           <div class="is-size-3 publication-authors">
             <span class="author-block"> </span>
@@ -95,7 +95,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="subtitle has-text-centered" style="font-size: 1.38rem; color: #1c1c1c">
-        We present <span style="color: #2fd3fc"><b>EasyTalk</b></span>,
+        We present <span style="color: #2fd3fc"><b>EasyTalking</b></span>,
         <p>
         a cross-modal style controllable emotional talking head generation method.
       </h2>
@@ -112,9 +112,27 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Speech-driven talking head generation has became a trending topic recently. However, expressing emotion on generated talking heads is still challenging due to the heterogeneity of different modals that are required to be handled properly during the generation. To enable effective facial expression control when generating talking heads, we propose the <b><u>EasyTalk</u></b>, a two-stage generation framework supporting the control of facial expression by emotion signals from images, text, or speech. Specifically, we separate the generation approach into two stages: Speech-to-Motion and Motion-to-Video, leveraging ARKit coefficients as the intermediate representations. We propose to utilize visemes as emotion-invariant representations to guide lip movements, thereby compelling the model to learn expression-related motions from the emotion inputs. We further align emotional signals from different modalities by cross-modal contrastive learning for more effective control. Extensive experiments show that our method achieves new state-of-the-art measured by lip-sync and realistic metrics and enables efficient facial expression controls.
+            Speech-driven talking head generation aims at synthesizing realistic talking video according to a speech, where notable advancements have been achieved. However, expressing designated emotion in one-shot scenario is still challenging due to the confusion between expressions and personal appearance and the heterogeneity of modalities of the emotion prompts. To increases the effectiveness and accessibility of emotion control, we propose the <b><u>EasyTalking</u></b>, a two-stage generation framework which allows emotion prompts in modalities of image, text, or speech. We construct the EasyTalking from two main intuitions: first, to decouple the learning of facial dynamics from tones and appearances for more effective emotion control; second, to learn a modal-agnostic emotion space for allowing emotion prompts in diverse modalities. Specifically, we leverage phonemes as toneless inputs and project the emotion prompts into a modal-agnostic emotion space, which are used to guide the proposed Talking Diffusion Transformer to generate the appearance-agnostic motion representations. After that, we adapt the PIRender model with the fine-grained facial loss to render video frames from the motion representations. Through such way, we ensure the facial expression is controlled by the emotion prompt while achieve new state-of-the-art measured by lip-sync and realistic metrics.
           </p>
         </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<!--Main Video-->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video Intro</h2>
+        <h2 class="subtitle has-text-centered">
+          (If the video is slightly lagging behind the audio, please try using a different device.) </h2>
+        <video id="main_video" controls="" playsinline="" height="100%">
+          <source src="./assets/video/demo.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
     <!--/ Abstract. -->
@@ -132,18 +150,18 @@
         <div class="columns is-centered has-text-centered">
           <div class="column">
             <div class="publication-img">
-              <img id="architecture" src="./assets/img/main.jpg"/>
+              <img id="architecture" src="./assets/img/main.png"/>
             </div>
           </div>
         </div>
         <p>
-          Illustration of the proposed model.
+          We divide the generation into the Speech-to-Motion and Motion-to-Video stages. In the first stage, we propose a Talking Diffusion Transformer to predict representations of holistic facial and head motion from phonemes and emotion prompts. Then we propse a render model to render video frames according to the predicted motion representations and the identity-reference image.
         </p>
     </div>
   </div>
 </section>
 
-<!-- Showcases -->
+<!--
 <section class="section">
   <div class="container is-max-desktop">
 
@@ -181,6 +199,7 @@
 
   </div>
 </section>
+-->
 
 <!-- Baseline compare -->
 <section class="section">
@@ -195,7 +214,7 @@
         <div class="content">
           <div class="columns is-vcentered interpolation-panel">
             <div class="column has-text-centered">
-              <img src="./assets/img/methods.png"  width="55%">
+              <img src="./assets/img/sota.png"  width="55%">
               <p>Audio-driven talking head video generation methods to be compared.</p>
             </div>
           </div>
@@ -204,16 +223,40 @@
 
     </div>
     <h3 class="title is-4">Qualitative Evaluation</h3>
-    <video id="matting-video" controls="" playsinline="" height="100%">
-      <source src="./assets/video/test.mp4" type="video/mp4">
-    </video>
+    <h4 class="title is-5">Part1. In-Domain Comparison</h4>
+    <table style="border-collapse:separate; border-spacing:0px 10px;">
+      <tr>
+        <td width="50%"> <video id="showcases1" controls="" playsinline="" height="90%">
+          <source src="./assets/video/in-domain case1 all.mp4" type="video/mp4">
+        </video> </td>
+        <td width="50%"> <video id="showcases2" controls="" playsinline="" height="90%">
+          <source src="./assets/video/in-domain case2.mp4" type="video/mp4">
+        </video> </td>
+      </tr>
+      </table>
+      Our method follows the specified emotion and keeps the shape of face, while other methods fail in generating right lips, following the emotion, or keeping the shape of face.
+
+    <p>&nbsp;&nbsp;&nbsp;</p>
+
+    <h4 class="title is-5">Part2. In-The-Wild Comparison</h4>
+    <table style="border-collapse:separate; border-spacing:0px 10px;">
+      <tr>
+        <td width="50%"> <video id="showcases3" controls="" playsinline="" height="90%">
+          <source src="./assets/video/out-of-domain case1.mp4" type="video/mp4">
+        </video> </td>
+        <td width="50%"> <video id="showcases4" controls="" playsinline="" height="90%">
+          <source src="./assets/video/out-of-domain case2.mp4" type="video/mp4">
+        </video> </td>
+      </tr>
+      </table>
+      Our method generates the most accurate lip when following the specific emotion.
 
     <br><br>
     <h3 class="title is-4">Quantitative Evaluation</h3>
     <div class="columns is-vcentered interpolation-panel">
       <div class="column has-text-centered">
-        <img src="./assets/img/metric.png">
-        <p> The quantitative results on dataset A and B.</p>
+        <img src="./assets/img/Quantitative_Evaluation.png">
+        <p> Comparison with SOTAs on the MEAD dataset. The best results are bold and the second-best results are bracketed.</p>
       </div>
     </div>
 
@@ -221,8 +264,9 @@
     <h3 class="title is-4">User Study</h3>
     <div class="columns is-vcentered interpolation-panel">
       <div class="column has-text-centered">
-        <img src="./assets/img/metric.png">
-        <p> User study results.</p>
+        <img src="./assets/img/user_study.png" width="55%">
+        <p>
+We conduct a user study with 30 users. We randomly select 10 speeches from the testing set: 5 for same-ID generation and the other 5 for cross-ID generation. Detailed setting is described in our supplement. We ask the users to separately identify the best anonymous models for each speech, according to lip synchronization, expression reality, and visual quality.</p>
       </div>
     </div>
 
@@ -237,9 +281,16 @@
         <h2 class="title is-3">Ablation Studies</h2>
       </div>
 
-    <h3 class="title is-4">1</h3>
-    <video id="matting-video" controls="" playsinline="" height="100%">
-      <source src="./assets/video/test.mp4" type="video/mp4">
+    <h3 class="title is-4">Text-prompt guided emotional talking head generation</h3>
+    <video controls style="width: 80%; margin: auto; display: block;">
+      <source src="./assets/video/text.mp4" type="video/mp4">
+    </video>
+
+    <p>&nbsp;&nbsp;&nbsp;</p>
+
+    <h3 class="title is-4">Audio-prompt guided emotional talking head generation</h3>
+    <video controls style="width: 80%; margin: auto; display: block;">
+      <source src="./assets/video/audio.mp4" type="video/mp4">
     </video>
 
   </div>
@@ -248,12 +299,12 @@
 <section class="section hero is-light">
   <div class="container is-max-desktop">
       <h1 class="title is-4">
-          Ethical Consideration (Copied from AniTalker)
+          Ethical Consideration
       </h1>
       <div class="content has-text-justified-desktop">
           <p>
 
-          The potential misuse of lifelike digital human face generation, such as for creating fraudulent identities or disseminating misinformation, necessitates preemptive ethical measures. Before utilizing these models, it is crucial for organizations to integrate ethical guidelines into their policies, ensuring the application of this technology emphasizes consent, transparency, and accountability. Furthermore, it is recommended to embed visible or invisible digital watermarks in any generated content.
+            We should use technology responsibly and be careful about the synthesized content. There is a risk that EasyTalking could be misused. Thus, we will restrict the access to our code and pre-trained models when making the code public, likely by validating the institutional email. Furthermore, we also consider embedding visible or invisible digital watermarks in any generated content.
 
           </p>
 
