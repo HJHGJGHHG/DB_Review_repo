@@ -46,12 +46,12 @@
   }
   .iframe-container-one iframe {
     width: 100%; /* Adjust width as needed */
-    height: 400px; /* Adjust height as needed */
+    height: 360px; /* Adjust height as needed */
     border: none;
   }
   .iframe-container-one-small iframe {
     width: 100%; /* Adjust width as needed */
-    height: 240px; /* Adjust height as needed */
+    height: 220px; /* Adjust height as needed */
     border: none;
   }
 </style>
@@ -356,6 +356,28 @@ We conduct a user study with 30 users. We randomly select 10 speeches from the t
       <div class="section-title">
         <h2 class="title is-3">Ablation Studies</h2>
       </div>
+    <div class="columns is-vcentered interpolation-panel">
+      <div class="column has-text-centered">
+        <img src="./assets/img/ablation.png" width="55%">
+        <p>
+          We start from using Wav2Vec2 features from speeches as the baseline. After using phoneme as input, the Sync and metrics of visual quality are improved, which indicates the model can learn better lip dynamics. Our deliberated causal mask further enhances the learning of phonemes. Our cross-modal emotion alignment learning significantly improves the emotion, which additionally improves the visual quality and lip sync. Finally, the proposed fine-grained facial loss further improves the expression generation and identity preservation by focusing on the eyes and mouth.</p>
+      </div>
+    </div>
+
+    <h3 class="title is-4">Visualization Results</h3>
+    <div id="results-carousel" class="carousel results-carousel">
+      <div class="item item-compare1">
+        <div class="iframe-container-one">
+          <iframe allow="fullscreen" allowfullscreen height="720" src="https://streamable.com/e/7j5sob?loop=0" width="1280" style="border:none;"></iframe>
+        </div>
+      </div>
+      <div class="item item-compare2">
+        <div class="iframe-container-one">
+          <iframe allow="fullscreen" allowfullscreen height="720" src="https://streamable.com/e/8pdzu4?loop=0" width="1280" style="border:none;"></iframe>
+        </div>
+      </div>
+    </div>
+    The model trained with Wav2Vec2.0 features tends to over-fit the training set, thus it performs worse in in-the-wild speeches and obstructs emotion control. The models taking as input phonemes produce better lips for in-the-wild speeches. However, they do not follow the text emotion prompt until the cross-modal emotion alignment is imposed. The fine-grained facial loss further improves the texture of the eyes and mouth.
 
   </div>
 </section>
